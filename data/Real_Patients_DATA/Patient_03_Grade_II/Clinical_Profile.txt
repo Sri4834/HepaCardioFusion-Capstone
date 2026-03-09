@@ -1,0 +1,28 @@
+PATIENT NAME: [Grade II Case]
+REVIEW GOAL: Test the 'Moderate' branching logic where 2/3 criteria (E/e', TRV, LAVI) must be positive.
+
+Liver ULTRASOUND Image
+- Image: liver_scan.jpg (F2 Stage - Moderate Fibrosis)
+
+HEART ECHOCARDIOGRAM
+- Video: heart_echo.avi (Pseudonormal filling pattern)
+
+PATIENTS CLINICAL PARAMETERS (ASE 2016 Pillars) :-
+- Age: 65
+- Gender: Male
+- BMI: 31.2
+- Systolic BP: 155
+- Diastolic BP: 95
+- EF%: 52 (AI Calculated)
+- E/e' Ratio: 15.2 (Positive > 14)
+- TR Velocity: 2.9 (Positive > 2.8)
+- E/A Ratio: 1.1 (Pseudonormal range)
+- LAVI: 36.5 (Positive > 34)
+- E Velocity: 68.0
+- AFIB: 1 (Yes)
+- HTN Meds: 1 (Yes)
+- H2FPEF Score: (AI Calculated)
+- HFpEF%: (AI Calculated)
+- DD-Risk Score: (AI Calculated)
+
+FUSION LOGIC: Despite a 'normal' E/A ratio (pseudonormalization), the elevated E/e', TRV, and LAVI satisfy the ASE 2016 criteria for Grade II (Moderate DD).

@@ -1,0 +1,28 @@
+PATIENT NAME: [Normal Control Case]
+REVIEW GOAL: Verify the system correctly identifies healthy diastolic function using ASE 2016 screening.
+
+Liver ULTRASOUND Image
+- Image: liver_scan.jpg (F0 Stage - Healthy)
+
+HEART ECHOCARDIOGRAM
+- Video: heart_echo.avi (Normal LV contractility and relaxation)
+
+PATIENTS CLINICAL PARAMETERS (ASE 2016 Pillars) :-
+- Age: 35
+- Gender: Male
+- BMI: 23.5
+- Systolic BP: 115
+- Diastolic BP: 75
+- EF%: 65 (AI Calculated)
+- E/e' Ratio: 7.2 (Normal < 9)
+- TR Velocity: 2.1 (Normal < 2.8)
+- E/A Ratio: 1.2 (Normal 0.8 - 2.0)
+- LAVI: 24.5 (Normal < 34)
+- E Velocity: 75 (Normal > 50)
+- AFIB: 0 (No)
+- HTN Meds: 0 (No)
+- H2FPEF Score: (AI Calculated)
+- HFpEF%: (AI Calculated)
+- DD-Risk Score: (AI Calculated)
+
+FUSION LOGIC: A 'clean' patient. All 4 screening criteria (E/e', TRV, LAVI, E-vel) are within normal ranges. The system should predict 'Normal Diastolic Function'.

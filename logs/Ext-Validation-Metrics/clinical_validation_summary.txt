@@ -1,0 +1,18 @@
+CDSS CLINICAL VALIDATION REPORT
+===============================
+
+Overall Test Accuracy: 0.6137 [95% CI: 0.5517 - 0.6810]
+
+PER-CLASS CLINICAL PERFORMANCE:
+Stage            ROC-AUC  Sensitivity (TPR)  Specificity (TNR)  PPV (Precision)    NPV  F1-Score
+   F0 0.9911 [0.98-1.00]             0.8298             0.9784           0.9070 0.9577    0.8667
+   F1 0.8024 [0.73-0.87]             0.4444             0.8984           0.5128 0.8705    0.4762
+   F2 0.8900 [0.84-0.93]             0.5435             0.8925           0.5556 0.8877    0.5495
+   F3 0.8722 [0.82-0.92]             0.6170             0.8595           0.5273 0.8983    0.5686
+   F4 0.8705 [0.81-0.93]             0.6170             0.8865           0.5800 0.9011    0.5979
+
+Interpretation Guidelines:
+- ROC-AUC: Area Under Curve [with 95% Confidence Interval].
+- Sensitivity: Ability to detect a specific stage correctly.
+- Specificity: Ability to correctly identify patients NOT in that stage.
+- PPV: Probability that a positive result is truly that stage.

@@ -1,0 +1,28 @@
+PATIENT NAME: Dasari Kanaka Durga Sowjanya (MOM_REPORT)
+REVIEW GOAL: Demonstrate multi-modal precision on a real medical case from 2026.
+
+Liver ULTRASOUND Image
+- Image: liver_scan.jpg (F0 Stage - Healthy Liver texture)
+
+HEART ECHOCARDIOGRAM
+- Video: heart_echo.avi (Grade II dynamics - Real Video)
+
+PATIENTS CLINICAL PARAMETERS (ASE 2016 Pillars) :-
+- Age: 40
+- Gender: Female
+- BMI: 28.7
+- Systolic BP: 138
+- Diastolic BP: 82
+- EF%: 62 (AI Calculated)
+- E/e' Ratio: 14.2 (Elevated filling pressure > 14)
+- TR Velocity: 2.2
+- E/A Ratio: 2.1 (Official Medical Report Value)
+- LAVI: 32.0 (Normal size < 34)
+- E Velocity: 110.0
+- AFIB: 0 (No)
+- HTN Meds: 1 (Yes - Anti-hypertensives listed)
+- H2FPEF Score: (AI Calculated)
+- HFpEF%: (AI Calculated)
+- DD-Risk Score: (AI Calculated)
+
+FUSION LOGIC: This case is a perfect test of the Mediator. The E/A ratio is high (2.1), but the TRV and LAVI are within normal range. The system must navigate these real-world nuances to achieve the correct Moderat (Grade II) diagnosis confirmed by the clinical cardiologist.

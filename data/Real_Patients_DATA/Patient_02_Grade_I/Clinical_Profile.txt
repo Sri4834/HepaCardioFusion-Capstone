@@ -1,0 +1,28 @@
+PATIENT NAME: [Grade I Case]
+REVIEW GOAL: Demonstrate detection of mild DD (Impaired Relaxation) via E/A < 0.8 and E < 50 cm/s.
+
+Liver ULTRASOUND Image
+- Image: liver_scan.jpg (F1 Stage - Mild Steatosis)
+
+HEART ECHOCARDIOGRAM
+- Video: heart_echo.avi (Mild impaired relaxation dynamics)
+
+PATIENTS CLINICAL PARAMETERS (ASE 2016 Pillars) :-
+- Age: 58
+- Gender: Female
+- BMI: 27.2
+- Systolic BP: 142
+- Diastolic BP: 88
+- EF%: 58 (AI Calculated)
+- E/e' Ratio: 8.5 (Normal LAP)
+- TR Velocity: 2.3
+- E/A Ratio: 0.72 (Primary Grade I Marker)
+- LAVI: 31.0
+- E Velocity: 45.0 (Primary Screening Marker for Grade I)
+- AFIB: 0 (No)
+- HTN Meds: 1 (Yes)
+- H2FPEF Score: (AI Calculated)
+- HFpEF%: (AI Calculated)
+- DD-Risk Score: (AI Calculated)
+
+FUSION LOGIC: Impaired relaxation (E/A < 0.8) with normal filling pressures (E/e' < 9). The AI should correctly grade this as Grade I (Mild DD).

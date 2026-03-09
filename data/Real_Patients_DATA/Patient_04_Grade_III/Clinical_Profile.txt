@@ -1,0 +1,28 @@
+PATIENT NAME: [Grade III Case]
+REVIEW GOAL: Verify restrictive filling pattern detection (E/A >= 2.0).
+
+Liver ULTRASOUND Image
+- Image: liver_scan.jpg (F4 Stage - Cirrhosis / High Congestion)
+
+HEART ECHOCARDIOGRAM
+- Video: heart_echo.avi (Restrictive filling dynamics)
+
+PATIENTS CLINICAL PARAMETERS (ASE 2016 Pillars) :-
+- Age: 72
+- Gender: Female
+- BMI: 29.5
+- Systolic BP: 165
+- Diastolic BP: 92
+- EF%: 48 (AI Calculated)
+- E/e' Ratio: 18.5
+- TR Velocity: 3.4
+- E/A Ratio: 2.4 (Primary Grade III Marker)
+- LAVI: 48.0
+- E Velocity: 110.0
+- AFIB: 1 (Yes)
+- HTN Meds: 1 (Yes)
+- H2FPEF Score: (AI Calculated)
+- HFpEF%: (AI Calculated)
+- DD-Risk Score: (AI Calculated)
+
+FUSION LOGIC: High E/A ratio (>= 2.0) is the definitive marker for restrictive filling. Combined with severe liver congestion (F4), the Mediator should confidently predict Grade III (Severe DD).

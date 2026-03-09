@@ -1,0 +1,28 @@
+PATIENT NAME: [Validation Case 05]
+REVIEW GOAL: Test system behavior on borderline/unknown profiles.
+
+Liver ULTRASOUND Image
+- Image: liver_scan.jpg (Matched from Unseen Test)
+
+HEART ECHOCARDIOGRAM
+- Video: heart_echo.avi (Matched from EchoNet Test)
+
+PATIENTS CLINICAL PARAMETERS (ASE 2016 Pillars) :-
+- Age: 62
+- Gender: Male
+- BMI: 29.8
+- Systolic BP: 145
+- Diastolic BP: 90
+- EF%: 55 (AI Calculated)
+- E/e' Ratio: 13.0
+- TR Velocity: 2.7
+- E/A Ratio: 0.95
+- LAVI: 33.5
+- E Velocity: 55.0
+- AFIB: 0
+- HTN Meds: 1
+- H2FPEF Score: (AI Calculated)
+- HFpEF%: (AI Calculated)
+- DD-Risk Score: (AI Calculated)
+
+FUSION LOGIC: Borderline values for almost all criteria (E/e' near 14, TRV near 2.8, LAVI near 34). This case tests the 'Consultant's' ability to perform probabilistic risk assessment when rules are not cut-and-dry.

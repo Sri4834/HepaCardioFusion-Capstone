@@ -1,0 +1,22 @@
+{
+    "project_name": "HepaCardio Multi-Modal Fusion CDSS",
+    "version": "2.1.0",
+    "author": "Sri4834 & Lead ML Team",
+    "date": "March 2026",
+    "frameworks": {
+        "tensorflow": "2.16.1",
+        "keras": "3.3.3",
+        "xgboost": "2.0.0",
+        "python": "3.11"
+    },
+    "dataset_metadata": {
+        "liver_images": "1,542 unique B-mode (pHash deduped)",
+        "heart_videos": "10,030 EchoNet-Dynamic (Stanford)",
+        "synthetic_fusion": "10,000 records (SMOTE balanced)"
+    },
+    "target_metrics": {
+        "accuracy": "93.74%",
+        "roc_auc": "0.95 (avg)",
+        "grade_i_recall": "0.84"
+    }
+}

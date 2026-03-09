@@ -1,0 +1,32 @@
+# HepaCardio CDSS Hyperparameters
+
+liver_model:
+  backbone: EfficientNetB0
+  weights: ImageNet
+  input_shape: [224, 224, 3]
+  learning_rate: 0.0001
+  batch_size: 32
+  optimizer: Adam
+  loss: CategoricalCrossEntropy
+
+heart_model:
+  backbone: MobileNetV2
+  temporal_layer: LSTM(64)
+  frames: 16
+  input_shape: [112, 112, 3]
+  learning_rate: 0.00005
+  batch_size: 16
+  optimizer: Adam
+  loss: MeanAbsoluteError (EF%)
+
+fusion_mediator_mlp:
+  layers: [128, 64, 32]
+  activation: ReLU
+  dropout: [0.4, 0.3]
+  batch_normalization: True
+  learning_rate: 0.0005
+  batch_size: 128
+  optimizer: Adam
+  loss: SparseCategoricalCrossEntropy
+  balancing: SMOTE
+  jitter: 0.12 (12%)

@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fusion CDSS - Live Testing</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f4f7f6;
+            color: #333;
+            margin: 0;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: auto;
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+        }
+
+        .upload-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: #fafafa;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            display: block;
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        input[type="file"],
+        input[type="number"] {
+            width: 100%;
+            padding: 8px;
+            box-sizing: border-box;
+        }
+
+        button {
+            display: block;
+            width: 100%;
+            padding: 15px;
+            background: #3498db;
+            color: white;
+            border: none;
+            font-size: 16px;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        #result {
+            margin-top: 30px;
+            padding: 20px;
+            border-radius: 5px;
+            display: none;
+        }
+
+        .success {
+            background: #e8f8f5;
+            border: 1px solid #a3e4d7;
+            color: #117a65;
+        }
+
+        .error {
+            background: #fdedec;
+            border: 1px solid #f5b7b1;
+            color: #c0392b;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="container">
+        <h1>HepaCardio Fusion CDSS</h1>
+        <p style="text-align: center; color: #7f8c8d;">Multi-Modal Diastolic Dysfunction Prediction</p>
+
+        <form id="predictionForm" enctype="multipart/form-data">
+
+            <div class="upload-section">
+                <h3>1. Imaging Pillars</h3>
+                <div class="form-group">
+                    <label for="liver_image">Liver Ultrasound (B-Mode Image):</label>
+                    <input type="file" id="liver_image" name="liver_image" accept="image/*" required>
+                </div>
+                <div class="form-group">
+                    <label for="heart_video">Cardiac Echo (Apical 4-Chamber AVI):</label>
+                    <input type="file" id="heart_video" name="heart_video" accept="video/avi" required>
+                </div>
+            </div>
+
+            <div class="upload-section">
+                <h3>2. Clinical Pillar</h3>
+                <div class="grid">
+                    <div class="form-group"><label>Age</label><input type="number" name="age" value="55" required></div>
+                    <div class="form-group"><label>BMI</label><input type="number" step="0.1" name="bmi" value="28.5"
+                            required></div>
+                    <div class="form-group"><label>Systolic BP</label><input type="number" name="systolic" value="130"
+                            required></div>
+                    <div class="form-group"><label>Diastolic BP</label><input type="number" name="diastolic" value="85"
+                            required></div>
+                    <div class="form-group"
+                        style="grid-column: span 2; background: #ebf5fb; padding: 10px; border-radius: 5px; text-align: center;">
+                        <strong style="color: #2980b9;">Ejection Fraction (EF%) is calculated by the AI Heart Sensor
+                            automatically.</strong>
+                    </div>
+                    <div class="form-group"><label>E/e' Ratio</label><input type="number" step="0.1" name="ee_ratio"
+                            value="10.5" required></div>
+                    <div class="form-group"><label>TR Velocity (m/s)</label><input type="number" step="0.1" name="trv"
+                            value="2.5" required></div>
+                    <div class="form-group"><label>E/A Ratio</label><input type="number" step="0.1" name="ea_ratio"
+                            value="1.0" required></div>
+                    <div class="form-group"><label>LA Vol. Index (LAVI)</label><input type="number" step="0.1"
+                            name="lavi" value="28.0" required></div>
+                    <div class="form-group"><label>E Velocity (cm/s)</label><input type="number" step="0.1"
+                            name="e_velocity" value="65.0" required></div>
+                    <div class="form-group">
+                        <label>AFIB Status</label>
+                        <select name="afib" style="width: 100%; padding: 8px;">
+                            <option value="0">Negative</option>
+                            <option value="1">Positive (AFIB Present)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label>Hypertension Meds</label>
+                        <select name="htn_meds" style="width: 100%; padding: 8px;">
+                            <option value="0">No / Less than 2 drugs</option>
+                            <option value="1">Yes (>= 2 Anti-HTN drugs)</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+
+            <button type="submit" id="submitBtn">Generate CDSS Prediction</button>
+        </form>
+
+        <div id="result"></div>
+    </div>
+
+    <script>
+        document.getElementById('predictionForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const btn = document.getElementById('submitBtn');
+            const resultDiv = document.getElementById('result');
+
+            btn.disabled = true;
+            btn.innerText = "Processing Multi-Modal Inference (ETA: ~3s)...";
+            resultDiv.style.display = 'none';
+
+            try {
+                const formData = new FormData(e.target);
+                const response = await fetch('/predict', { method: 'POST', body: formData });
+                const data = await response.json();
+
+                resultDiv.style.display = 'block';
+                if (data.status === 'success') {
+                    resultDiv.className = 'success';
+                    resultDiv.innerHTML = `
+                <h2>Diagnosis: <strong>${data.grade}</strong></h2>
+                <p><strong>Mediator Confidence:</strong> ${data.confidence.toFixed(2)}%</p>
+                <div style="background: #ffffff; padding: 10px; border-radius: 5px; margin: 10px 0; border-left: 5px solid #3498db;">
+                    <strong>Heart Sensor Output:</strong><br>
+                    AI-Calculated Ejection Fraction (EF%): <span style="color: #2980b9; font-weight: bold;">${data.ai_ef}%</span><br>
+                    <small>Value derived directly from Echo cardiac motion analysis.</small>
+                    <br><br>
+                    <strong>Liver Sensor Output:</strong><br>
+                    AI-Predicted Fibrosis Stage: <span style="color: #27ae60; font-weight: bold;">${data.ai_stage}</span><br>
+                    <small>Value derived from B-mode liver ultrasound texture analysis.</small>
+                    <br><br>
+                    <strong>Clinical Scoring:</strong><br>
+                    H2FPEF Score: <span style="color: #e67e22; font-weight: bold;">${data.h2fpef_score} / 9</span><br>
+                    HFpEF Probability: <span style="color: #e67e22; font-weight: bold;">${data.h2fpef_prob}%</span>
+                </div>
+                <hr>
+                <p><strong>Raw Mediator Probabilities:</strong><br>
+                Normal: ${(data.all_probs[0] * 100).toFixed(1)}% | Grade I: ${(data.all_probs[1] * 100).toFixed(1)}% | Grade II: ${(data.all_probs[2] * 100).toFixed(1)}% | Grade III: ${(data.all_probs[3] * 100).toFixed(1)}%
+                </p>
+                <p><strong>XGBoost Clinical Baseline:</strong><br>
+                Normal: ${(data.xgb_risk[0] * 100).toFixed(1)}% | Grade I: ${(data.xgb_risk[1] * 100).toFixed(1)}% | Grade II: ${(data.xgb_risk[2] * 100).toFixed(1)}% | Grade III: ${(data.xgb_risk[3] * 100).toFixed(1)}%
+                </p>
+            `;
+                } else {
+                    resultDiv.className = 'error';
+                    resultDiv.innerHTML = `<h3>Error</h3><p>${data.message}</p>`;
+                }
+            } catch (err) {
+                resultDiv.style.display = 'block';
+                resultDiv.className = 'error';
+                resultDiv.innerHTML = `<h3>Server Error</h3><p>Ensure app_simple.py is running.</p>`;
+            } finally {
+                btn.disabled = false;
+                btn.innerText = "Generate CDSS Prediction";
+            }
+        });
+    </script>
+
+</body>
+
+</html>
