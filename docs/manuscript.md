@@ -294,11 +294,11 @@ The fusion system achieves superior performance by resolving the "Indeterminate"
 ### 3.2 ROC-AUC & Multi-Class Confusion Matrix Analysis
 The multi-class performance is visualized through the Confusion Matrix and ROC curves, demonstrating superior class separation.
 
-![Confusion Matrix](file:///D:/FUSION_TEST/metrics/fusion/late_fusion_balanced_cm.png)
+![Confusion Matrix](images/late_fusion_balanced_cm.png)
 
-![ROC Curves](file:///D:/FUSION_TEST/metrics/fusion/fusion_roc_curves.png)
+![ROC Curves](images/fusion_roc_curves.png)
 
-![Sensitivity vs Specificity](file:///D:/FUSION_TEST/metrics/fusion/fusion_sensitivity_vs_specificity.png)
+![Sensitivity vs Specificity](images/fusion_sensitivity_vs_specificity.png)
 
 #### 3.2.1 Class Separation Dynamics
 - **Grade I AUC**: 0.88 — Reflecting the model's ability to distinguish impaired relaxation from normal filling despite significant parameter overlap.
@@ -342,7 +342,7 @@ The EfficientNetB0 Hepatic Expert focuses on parenchymal texture and capsular re
 
 | Case: Healthy (F0) Grad-CAM | Case: Cirrhotic (F4) Grad-CAM |
 |:---:|:---:|
-| ![Hepatic F0 Grad-CAM](file:///D:/FUSION_TEST/Ext-Validation-Metrics/GradCAM/True_F0_Pred_F0_99.8pct_a294.jpg) | ![Hepatic F4 Grad-CAM](file:///D:/FUSION_TEST/Ext-Validation-Metrics/GradCAM/True_F4_Pred_F4_99.0pct_e23.jpg) |
+| ![Hepatic F0 Grad-CAM](images/True_F0_Pred_F0_99.8pct_a294.jpg) | ![Hepatic F4 Grad-CAM](images/True_F4_Pred_F4_99.0pct_e23.jpg) |
 | **Normal Parenchyma**: Uniform attention profile across the liver tissue. | **Cirrhotic Border**: High-activation focus on the nodular hepatic capsule. |
 
 #### 3.4.2 Cardiac Pillar Interpretability
@@ -350,7 +350,7 @@ The MobileNetV2+LSTM pillar must track the mitral annulus motion throughout the 
 
 | Heart Echo Grad-CAM Case A | Heart Echo Grad-CAM Case B |
 |:---:|:---:|
-| ![Heart Grad-CAM A](file:///D:/FUSION_TEST/metrics/heart_gradcam/heart_tc_1_0X37671D9D80CCE804.gif) | ![Heart Grad-CAM B](file:///D:/FUSION_TEST/metrics/heart_gradcam/heart_tc_3_0X68B3B1926A16337D.gif) |
+| ![Heart Grad-CAM A](images/heart_tc_1_0X37671D9D80CCE804.gif) | ![Heart Grad-CAM B](images/heart_tc_3_0X68B3B1926A16337D.gif) |
 | **Mitral Annulus Focus**: Model tracks the junctional motion during diastole. | **Septal Wall Focus**: Attention on the posterior and septal wall kinetics. |
 
 ### 3.6 Statistical Significance Analysis (P-Value Matrix)
@@ -372,12 +372,12 @@ The system was validated on a high-fidelity gallery of 6 real-world clinical cas
 
 | Case ID | Liver Scan | Heart Echo | Clinical Grade | AI Hybrid Diagnosis | Primary Diagnostic Driver |
 |:---|:---:|:---:|:---|:---|:---|
-| **MOM_REAL** | ![](file:///D:/FUSION_TEST/Real_Patients_DATA/MOM_REAL_MEDICAL_REPORT/liver_scan.jpg) | ![](file:///D:/FUSION_TEST/Real_Patients_DATA/MOM_REAL_MEDICAL_REPORT/heart_echo.gif) | **Grade II** | ❌ **Normal** (53.9%) | Near-boundary E/e' (8.2) |
-| **Patient_01** | ![](file:///D:/FUSION_TEST/Real_Patients_DATA/Patient_01_Normal/liver_scan.jpg) | ![](file:///D:/FUSION_TEST/Real_Patients_DATA/Patient_01_Normal/heart_echo.gif) | **Normal** | ✅ **Normal** (99.9%) | Healthy E/e' (6.1) + F0 Liver |
-| **Patient_02** | ![](file:///D:/FUSION_TEST/Real_Patients_DATA/Patient_02_Grade_I/liver_scan.jpg) | ![](file:///D:/FUSION_TEST/Real_Patients_DATA/Patient_02_Grade_I/heart_echo.gif) | **Grade I** | ❌ **Normal** (94.0%) | Subtle F1 texture missed by MLP |
-| **Patient_03** | ![](file:///D:/FUSION_TEST/Real_Patients_DATA/Patient_03_Grade_II/liver_scan.png) | ![](file:///D:/FUSION_TEST/Real_Patients_DATA/Patient_03_Grade_II/heart_echo.gif) | **Grade II** | ✅ **Grade II** (99.8%) | High TRV (2.9) + F2 Liver |
-| **Patient_04** | ![](file:///D:/FUSION_TEST/Real_Patients_DATA/Patient_04_Grade_III/liver_scan.jpg) | ![](file:///D:/FUSION_TEST/Real_Patients_DATA/Patient_04_Grade_III/heart_echo.gif) | **Grade III** | ✅ **Grade III** (100%) | Cirrhotic (F4) + Low EF% |
-| **Patient_05** | ![](file:///D:/FUSION_TEST/Real_Patients_DATA/Patient_05_UNKNOWN/liver_scan.png) | ![](file:///D:/FUSION_TEST/Real_Patients_DATA/Patient_05_UNKNOWN/heart_echo.gif) | *Unknown* | ✅ **Grade I** (97.1%) | BMI (34) + F1 Hepatic signal |
+| **MOM_REAL** | ![](images/patients/MOM_REAL_MEDICAL_REPORT/liver_scan.jpg) | ![](images/patients/MOM_REAL_MEDICAL_REPORT/heart_echo.gif) | **Grade II** | ❌ **Normal** (53.9%) | Near-boundary E/e' (8.2) |
+| **Patient_01** | ![](images/patients/Patient_01_Normal/liver_scan.jpg) | ![](images/patients/Patient_01_Normal/heart_echo.gif) | **Normal** | ✅ **Normal** (99.9%) | Healthy E/e' (6.1) + F0 Liver |
+| **Patient_02** | ![](images/patients/Patient_02_Grade_I/liver_scan.jpg) | ![](images/patients/Patient_02_Grade_I/heart_echo.gif) | **Grade I** | ❌ **Normal** (94.0%) | Subtle F1 texture missed by MLP |
+| **Patient_03** | ![](images/patients/Patient_03_Grade_II/liver_scan.png) | ![](images/patients/Patient_03_Grade_II/heart_echo.gif) | **Grade II** | ✅ **Grade II** (99.8%) | High TRV (2.9) + F2 Liver |
+| **Patient_04** | ![](images/patients/Patient_04_Grade_III/liver_scan.jpg) | ![](images/patients/Patient_04_Grade_III/heart_echo.gif) | **Grade III** | ✅ **Grade III** (100%) | Cirrhotic (F4) + Low EF% |
+| **Patient_05** | ![](images/patients/Patient_05_UNKNOWN/liver_scan.png) | ![](images/patients/Patient_05_UNKNOWN/heart_echo.gif) | *Unknown* | ✅ **Grade I** (97.1%) | BMI (34) + F1 Hepatic signal |
 
 ### 3.4 Clinical Case Logic Breakdown & "Committee" Rationale
 
